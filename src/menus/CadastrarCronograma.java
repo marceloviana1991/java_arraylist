@@ -7,13 +7,15 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CadastrarCronograma {
-    static Scanner leitura = new Scanner(System.in);
     public static void cadastrarCronograma(ArrayList<Cronograma> cronogramas) {
         try {
-            System.out.println("Informe o título do cronograma: ");
-            String titulo = leitura.next();
-            Cronograma cronograma = new Cronograma(titulo);
-            cronogramas.add(cronograma);
+            Scanner leitura = new Scanner(System.in);
+            // Cadastra
+            System.out.println("Informe o id para cadastrar o cronograma");
+            int id = leitura.nextInt();
+            Cronograma cronograma = new Cronograma(id);
+            // Adiciona
+            cronogramas.add(id, cronograma);
             System.out.println("...");
             System.out.println("Cronograma adicionado com sucesso!");
         } catch (InputMismatchException inputMismatchException) {
@@ -21,6 +23,5 @@ public class CadastrarCronograma {
             System.out.println("ERRO DE DIGITAÇÃO");
             System.out.println("Não foi possível adicionar o cronograma!");
         }
-
     }
 }

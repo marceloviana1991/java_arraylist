@@ -6,13 +6,16 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
 public class ListarEventos {
-    static Scanner leitura = new Scanner(System.in);
     public static void listarEventos(ArrayList<Cronograma> cronogramas) {
         try {
-            System.out.println("Informe o título do cronograma: ");
-            String tituloCronograma = leitura.next();
-            Cronograma cronogramaEncontrado = FindCronograma.findCronograma(tituloCronograma, cronogramas);
+            Scanner leitura = new Scanner(System.in);
+            // Captura
+            System.out.println("Informe o id do cronograma: ");
+            int idCronograma = leitura.nextInt();
+            Cronograma cronogramaEncontrado = cronogramas.get(idCronograma);
+            // Lista
             cronogramaEncontrado.contruirTabelaDeEventos();
         } catch (InputMismatchException inputMismatchException) {
             System.out.println("...");

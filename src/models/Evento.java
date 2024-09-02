@@ -2,19 +2,34 @@ package models;
 
 import java.util.ArrayList;
 
+/*
+Todo objeto da classe Evento, logo após instanciado, é adicionado
+ a um ArrayList da classe Cronograma
+ */
 public class Evento {
-    private String nome;
+    private int id;
+    private String atividade;
+    /*
+    Array boolean de tamanho 7 que tem a função de determinar os espaços que serão ocupados
+    pelo objeto Evento na tabela de exibição da classe Cronograma, representadando uma semana
+    de eventos
+     */
     private boolean[] ocorrencias;
     private ArrayList<Avaliacao> avaliacoes;
 
-    public Evento (String nome, boolean[] ocorrencias) {
-        this.nome = nome;
+    public Evento (int id,String atividade, boolean[] ocorrencias) {
+        this.id = id;
+        this.atividade = atividade;
         this.ocorrencias = ocorrencias;
         avaliacoes = new ArrayList<>();
     }
 
-    public String getNome(){
-        return nome;
+    public int getId() {
+        return id;
+    }
+
+    public String getAtividade() {
+        return atividade;
     }
 
     public boolean[] getOcorrencias() {
@@ -37,6 +52,6 @@ public class Evento {
 
     @Override
     public String toString() {
-        return nome;
+        return atividade;
     }
 }

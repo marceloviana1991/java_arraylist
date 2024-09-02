@@ -2,17 +2,21 @@ package models;
 
 import java.util.ArrayList;
 
+/*
+Todo objeto da classe Cronograma, logo após instanciado, é adicionado
+ a um ArrayList da classe Main
+*/
 public class Cronograma {
-    private String titulo;
+    private int id;
     private ArrayList<Evento> eventos;
 
-    public Cronograma(String titulo) {
-        this.titulo = titulo;
+    public Cronograma(int id) {
+        this.id = id;
         eventos = new ArrayList<>();
     }
 
-    public String getTitulo() {
-        return titulo;
+    public int getId() {
+        return id;
     }
 
     public ArrayList<Evento> getEventos() {
@@ -40,6 +44,5 @@ public class Cronograma {
         for (ArrayList<Evento> tb: tabelaDeEventos){
             System.out.println(tb);
         }
-        System.out.println();
     }
 }

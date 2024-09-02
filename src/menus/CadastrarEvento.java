@@ -8,11 +8,19 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CadastrarEvento {
-    static Scanner leitura = new Scanner(System.in);
     public static void cadastrarEvento(ArrayList<Cronograma> cronogramas) {
         try{
-            System.out.println("Informe o nome do evento: ");
-            String nome = leitura.next();
+            Scanner leitura = new Scanner(System.in);
+            // Captura
+            System.out.println("Informe o id do cronograma que vai receber esse evento: ");
+            int idCrongrama  = leitura.nextInt();
+            Cronograma cronogramaEncontrado = cronogramas.get(idCrongrama);
+            // Cadastra
+            System.out.println("Informe o id para cadastrar o evento ");
+            int id = leitura.nextInt();
+            System.out.println("Informe a atividade realizada no evento: ");
+            var recebeQuebraLinha = leitura.nextLine();
+            String atividade = leitura.nextLine();
             boolean[] ocorrencias = new boolean[7];
             System.out.println("Cadastro de ocorrências:");
             System.out.println("Corresponde a validação de ocorrência de evento em período de 7 dias");
@@ -33,17 +41,9 @@ public class CadastrarEvento {
                     ocorrencias[i] = false;
                 }
             }
-            System.out.println("Informe o título do cronograma que vai receber esse evento: ");
-            String tituloCronograma = leitura.next();
-            Cronograma cronogramaEncontrado = FindCronograma.findCronograma(tituloCronograma, cronogramas);
-            Evento evento = new Evento(nome, ocorrencias);
-            if (cronogramaEncontrado != null) {
-                cronogramaEncontrado.setEventos(evento);
-                System.out.println("...");
-                System.out.println("Evento adicionado com sucesso!");
-            } else {
-                System.out.println("O cronograma não foi encrontrado!");
-            }
+            Evento evento = new Evento(id, atividade, ocorrencias);
+            // Adiciona
+            cronogramaEncontrado.getEventos().add(evento.getId(), evento);
         } catch (InputMismatchException inputMismatchException) {
             System.out.println("...");
             System.out.println("ERRO DE DIGITAÇÃO");

@@ -7,17 +7,16 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
-    static ArrayList<Cronograma> cronogramas = new ArrayList<>();
-    static Scanner leitura = new Scanner(System.in);
 
     public static void main(String[] args) {
+
+        ArrayList<Cronograma> cronogramas = new ArrayList<>();
 
         int menu = 10;
 
         while (menu != 0) {
-            System.out.println("""
-                
-                
+            System.out.println("""                
+              
                 
                 
                 *****************************
@@ -30,9 +29,14 @@ public class Main {
                 0- Para sair
                 *****************************
                 """);
-
-            menu = leitura.nextInt();
-
+            try {
+                Scanner leitura = new Scanner(System.in);
+                menu = leitura.nextInt();
+            } catch (InputMismatchException inputMismatchException) {
+                System.out.println("...");
+                System.out.println("ERRO DE DIGITAÇÃO");
+                continue;
+            }
             switch (menu) {
                 case 1:
                     CadastrarCronograma.cadastrarCronograma(cronogramas);

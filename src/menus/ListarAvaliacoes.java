@@ -8,14 +8,17 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ListarAvaliacoes {
-    static Scanner leitura = new Scanner(System.in);
     public static void listarAvaliacoes(ArrayList<Cronograma> cronogramas) {
         try {
-            System.out.println("Informe o título do cronograma: ");
-            String tituloCronograma = leitura.next();
-            System.out.println("Informe o nome do evento: ");
-            String nomeEvento = leitura.next();
-            Evento eventoEncontrado = FindEvento.findEvento(nomeEvento, tituloCronograma, cronogramas);
+            Scanner leitura = new Scanner(System.in);
+            // Captura
+            System.out.println("Informe o id do cronograma:");
+            int idCronograma = leitura.nextInt();
+            Cronograma cronogramaEncontrado = cronogramas.get(idCronograma);
+            System.out.println("Informe o id do evento: ");
+            int idEvento = leitura.nextInt();
+            Evento eventoEncontrado = cronogramaEncontrado.getEventos().get(idEvento);
+            // Lista
             eventoEncontrado.exibirAvaliacoes();
         } catch (InputMismatchException inputMismatchException) {
             System.out.println("...");
