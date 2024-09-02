@@ -15,6 +15,13 @@ public class Cronograma {
         eventos = new ArrayList<>();
     }
 
+    @Override
+    public String toString() {
+        return "Cronograma{" +
+                "id=" + id +
+                '}';
+    }
+
     public int getId() {
         return id;
     }
@@ -41,8 +48,6 @@ public class Cronograma {
             tabelaDeEventos.add(tabelaInterna);
         }
         System.out.println("Tabela de eventos:");
-        for (ArrayList<Evento> tb: tabelaDeEventos){
-            System.out.println(tb);
-        }
+        tabelaDeEventos.forEach(System.out::println);
     }
 }

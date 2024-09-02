@@ -24,20 +24,17 @@ public class Evento {
         avaliacoes = new ArrayList<>();
     }
 
+    @Override
+    public String toString() {
+        return atividade;
+    }
+
     public int getId() {
         return id;
     }
 
-    public String getAtividade() {
-        return atividade;
-    }
-
     public boolean[] getOcorrencias() {
         return ocorrencias;
-    }
-
-    public ArrayList<Avaliacao> getAvaliacoes() {
-        return avaliacoes;
     }
 
     public void setAvaliacoes(Avaliacao avaliacao) {
@@ -45,13 +42,7 @@ public class Evento {
     }
 
     public void exibirAvaliacoes() {
-        for (Avaliacao avaliacaoIterada: this.getAvaliacoes()){
-            System.out.println(avaliacaoIterada);
-        }
+        avaliacoes.forEach(System.out::println);
     }
 
-    @Override
-    public String toString() {
-        return atividade;
-    }
 }
