@@ -13,4 +13,5 @@ Esse projeto consiste na criação de uma aplição em linguagem de programaçã
 - Tratamento de exceções
 - Implementação de método informando posição
 - Comparação entre ArrayList e LinkdList
+- Implementação de id autoincrementado
 

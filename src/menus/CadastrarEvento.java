@@ -16,8 +16,6 @@ public class CadastrarEvento {
             int idCrongrama  = leitura.nextInt();
             Cronograma cronogramaEncontrado = cronogramas.get(idCrongrama);
             // Cadastra
-            System.out.println("Informe o id para cadastrar o evento ");
-            int id = leitura.nextInt();
             System.out.println("Informe a atividade realizada no evento: ");
             var recebeQuebraLinha = leitura.nextLine();
             String atividade = leitura.nextLine();
@@ -41,9 +39,13 @@ public class CadastrarEvento {
                     ocorrencias[i] = false;
                 }
             }
-            Evento evento = new Evento(id, atividade, ocorrencias);
+            Evento evento = new Evento(atividade, ocorrencias);
             // Adiciona
-            cronogramaEncontrado.getEventos().add(evento.getId(), evento);
+            cronogramaEncontrado.getEventos().add(evento);
+            evento.setId(cronogramaEncontrado.getEventos().indexOf(evento));
+            System.out.println("...");
+            System.out.println("Evento cadastrado com sucesso!");
+            System.out.println(evento.getStringId());
         } catch (InputMismatchException inputMismatchException) {
             System.out.println("...");
             System.out.println("ERRO DE DIGITAÇÃO");

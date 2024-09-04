@@ -10,8 +10,7 @@ public class Cronograma {
     private int id;
     private ArrayList<Evento> eventos;
 
-    public Cronograma(int id) {
-        this.id = id;
+    public Cronograma() {
         eventos = new ArrayList<>();
     }
 
@@ -22,16 +21,12 @@ public class Cronograma {
                 '}';
     }
 
-    public int getId() {
-        return id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public ArrayList<Evento> getEventos() {
         return eventos;
-    }
-
-    public void setEventos(Evento evento) {
-        eventos.add(evento);
     }
 
     public void contruirTabelaDeEventos() {

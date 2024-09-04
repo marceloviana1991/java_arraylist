@@ -17,8 +17,7 @@ public class Evento {
     private boolean[] ocorrencias;
     private ArrayList<Avaliacao> avaliacoes;
 
-    public Evento (int id,String atividade, boolean[] ocorrencias) {
-        this.id = id;
+    public Evento (String atividade, boolean[] ocorrencias) {
         this.atividade = atividade;
         this.ocorrencias = ocorrencias;
         avaliacoes = new ArrayList<>();
@@ -29,8 +28,14 @@ public class Evento {
         return atividade;
     }
 
-    public int getId() {
-        return id;
+    public String getStringId() {
+        return "Evento{" +
+                "id=" + id +
+                "}";
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public boolean[] getOcorrencias() {

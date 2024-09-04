@@ -30,6 +30,8 @@ public class CadastrarAvaliacao {
             Avaliacao avaliacao = new Avaliacao(nota, tagDeAvaliacao, textoDeAvaliacao);
             // Adiciona
             eventoEncontrado.setAvaliacoes(avaliacao);
+            System.out.println("...");
+            System.out.println("Avaliacao cadastrada com sucesso!");
         } catch (InputMismatchException inputMismatchException) {
             System.out.println("...");
             System.out.println("ERRO DE DIGITAÇÃO");

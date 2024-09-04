@@ -4,20 +4,16 @@ import models.Cronograma;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class CadastrarCronograma {
     public static void cadastrarCronograma(ArrayList<Cronograma> cronogramas) {
         try {
-            Scanner leitura = new Scanner(System.in);
-            // Cadastra
-            System.out.println("Informe o id para cadastrar o cronograma");
-            int id = leitura.nextInt();
-            Cronograma cronograma = new Cronograma(id);
-            // Adiciona
-            cronogramas.add(id, cronograma);
+            Cronograma cronograma = new Cronograma();
+            cronogramas.add(cronograma);
+            cronograma.setId(cronogramas.indexOf(cronograma));
             System.out.println("...");
             System.out.println("Cronograma adicionado com sucesso!");
+            System.out.println(cronograma);
         } catch (InputMismatchException inputMismatchException) {
             System.out.println("...");
             System.out.println("ERRO DE DIGITAÇÃO");
