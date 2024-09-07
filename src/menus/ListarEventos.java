@@ -2,9 +2,7 @@ package menus;
 
 import models.Cronograma;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class ListarEventos {
@@ -16,7 +14,8 @@ public class ListarEventos {
             int idCronograma = leitura.nextInt();
             Cronograma cronogramaEncontrado = cronogramas.get(idCronograma);
             // Lista
-            cronogramaEncontrado.contruirTabelaDeEventos();
+            Collections.sort(cronogramaEncontrado.getEventos());
+            cronogramaEncontrado.getEventos().forEach(System.out::println);
         } catch (InputMismatchException inputMismatchException) {
             System.out.println("...");
             System.out.println("ERRO DE DIGITAÇÃO");

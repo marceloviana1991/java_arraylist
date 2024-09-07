@@ -1,6 +1,7 @@
 package menus;
 
 import models.Cronograma;
+import models.DiaDaSemana;
 import models.Evento;
 
 import java.util.ArrayList;
@@ -19,27 +20,48 @@ public class CadastrarEvento {
             System.out.println("Informe a atividade realizada no evento: ");
             var recebeQuebraLinha = leitura.nextLine();
             String atividade = leitura.nextLine();
-            boolean[] ocorrencias = new boolean[7];
-            System.out.println("Cadastro de ocorrências:");
-            System.out.println("Corresponde a validação de ocorrência de evento em período de 7 dias");
-            for (int i = 0; i < 7; i++) {
-                int n = i + 1;
-                int aux = 2;
-                while (aux != 0 && aux != 1){
-                    System.out.println(n + " - Digite 1(V) para verdadeiro e 0(F) para falso:");
-                    aux = leitura.nextInt();
-                    if (aux != 0 && aux != 1){
-                        System.out.println("...");
+            int menu = 0;
+            DiaDaSemana diaDaSemana = null;
+            while (menu == 0) {
+                System.out.println("""
+                        Digite um número para escolher o dia será realizado esse evento:
+                        1 - SEGUNDA
+                        2 - TERÇA
+                        3 - QUARTA
+                        4 - QUINTA
+                        5 - SEXTA
+                        6 - SÁBADO
+                        7 - DOMINGO
+                        """);
+                menu = leitura.nextInt();
+                switch (menu) {
+                    case 1:
+                        diaDaSemana = DiaDaSemana.SEGUNDA;
+                        break;
+                    case 2:
+                        diaDaSemana = DiaDaSemana.TERCA;
+                        break;
+                    case 3:
+                        diaDaSemana = DiaDaSemana.QUARTA;
+                        break;
+                    case 4:
+                        diaDaSemana = DiaDaSemana.QUINTA;
+                        break;
+                    case 5:
+                        diaDaSemana = DiaDaSemana.SEXTA;
+                        break;
+                    case 6:
+                        diaDaSemana = DiaDaSemana.SABADO;
+                        break;
+                    case 7:
+                        diaDaSemana = DiaDaSemana.DOMINGO;
+                        break;
+                    default:
                         System.out.println("Número inválido!");
-                    }
-                }
-                if (aux == 1){
-                    ocorrencias[i] = true;
-                } else{
-                    ocorrencias[i] = false;
+                        menu = 0;
                 }
             }
-            Evento evento = new Evento(atividade, ocorrencias);
+            Evento evento = new Evento(atividade, diaDaSemana);
             // Adiciona
             cronogramaEncontrado.getEventos().add(evento);
             evento.setId(cronogramaEncontrado.getEventos().indexOf(evento));
