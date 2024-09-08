@@ -67,12 +67,14 @@ public class CadastrarEvento {
             evento.setId(cronogramaEncontrado.getEventos().indexOf(evento));
             System.out.println("...");
             System.out.println("Evento cadastrado com sucesso!");
-            System.out.println(evento.getStringId());
+            System.out.println(evento);
         } catch (InputMismatchException inputMismatchException) {
             System.out.println("...");
             System.out.println("ERRO DE DIGITAÇÃO");
             System.out.println("Não foi possível adicionar o evento!");
+        } catch (IndexOutOfBoundsException indexOutOfBoundsException) {
+            System.out.println("...");
+            System.out.println("id não encontrado!");
         }
-
     }
 }

@@ -8,16 +8,22 @@ Todo objeto da classe Cronograma, logo após instanciado, é adicionado
 */
 public class Cronograma {
     private int id;
+    private String titulo;
     private ArrayList<Evento> eventos;
 
     public Cronograma() {
         eventos = new ArrayList<>();
     }
 
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
     @Override
     public String toString() {
         return "Cronograma{" +
                 "id=" + id +
+                ", titulo='" + titulo + '\'' +
                 '}';
     }
 

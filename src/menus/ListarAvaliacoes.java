@@ -24,7 +24,9 @@ public class ListarAvaliacoes {
             System.out.println("...");
             System.out.println("ERRO DE DIGITAÇÃO");
             System.out.println("Não foi possível listar as avaliações!");
+        }  catch (IndexOutOfBoundsException indexOutOfBoundsException) {
+            System.out.println("...");
+            System.out.println("id não encontrado!");
         }
-
     }
 }

@@ -20,6 +20,9 @@ public class ListarEventos {
             System.out.println("...");
             System.out.println("ERRO DE DIGITAÇÃO");
             System.out.println("Não foi possível adicionar os eventos!");
+        }  catch (IndexOutOfBoundsException indexOutOfBoundsException) {
+            System.out.println("...");
+            System.out.println("id não encontrado!");
         }
     }
 }

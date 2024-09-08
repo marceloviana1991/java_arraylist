@@ -34,12 +34,6 @@ public class Evento implements Comparable<Evento> {
                 '}';
     }
 
-    public String getStringId() {
-        return "Evento{" +
-                "id=" + id +
-                "}";
-    }
-
     public void setId(int id) {
         this.id = id;
     }

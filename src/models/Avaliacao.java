@@ -6,10 +6,10 @@ Todo objeto da classe Avaliacao, logo após instanciado, é adicionado
  */
 public class Avaliacao {
     private double nota;
-    private String tag;
+    private TagDeAvaliacao tag;
     private String texto;
 
-    public Avaliacao (double nota, String tag, String texto) {
+    public Avaliacao (double nota, TagDeAvaliacao tag, String texto) {
         this.nota = nota;
         this.tag = tag;
         this.texto = texto;
@@ -17,6 +17,10 @@ public class Avaliacao {
 
     @Override
     public String toString() {
-        return nota + " - " + tag + " \n " + texto ;
+        return "Avaliacao{" +
+                "nota=" + nota +
+                ", tag=" + tag +
+                ", texto='" + texto + '\'' +
+                '}';
     }
 }
