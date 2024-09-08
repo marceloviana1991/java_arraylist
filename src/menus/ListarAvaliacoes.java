@@ -12,9 +12,11 @@ public class ListarAvaliacoes {
         try {
             Scanner leitura = new Scanner(System.in);
             // Captura
+            cronogramas.forEach(System.out::println);
             System.out.println("Informe o id do cronograma:");
             int idCronograma = leitura.nextInt();
             Cronograma cronogramaEncontrado = cronogramas.get(idCronograma);
+            cronogramaEncontrado.getEventos().forEach(System.out::println);
             System.out.println("Informe o id do evento: ");
             int idEvento = leitura.nextInt();
             Evento eventoEncontrado = cronogramaEncontrado.getEventos().get(idEvento);

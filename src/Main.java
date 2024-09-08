@@ -12,9 +12,9 @@ public class Main {
 
         ArrayList<Cronograma> cronogramas = new ArrayList<>();
 
-        int menu = 10;
+        int menu;
 
-        while (menu != 0) {
+        do {
             System.out.println("""                
               
                 
@@ -35,6 +35,7 @@ public class Main {
             } catch (InputMismatchException inputMismatchException) {
                 System.out.println("...");
                 System.out.println("ERRO DE DIGITAÇÃO");
+                menu = 100;
                 continue;
             }
             switch (menu) {
@@ -56,7 +57,7 @@ public class Main {
                 case 6:
                     ListarAvaliacoes.listarAvaliacoes(cronogramas);
             }
-        }
+        } while (menu != 0);
     }
 }
 

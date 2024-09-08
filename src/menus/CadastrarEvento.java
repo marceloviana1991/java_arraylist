@@ -13,16 +13,16 @@ public class CadastrarEvento {
         try{
             Scanner leitura = new Scanner(System.in);
             // Captura
+            cronogramas.forEach(System.out::println);
             System.out.println("Informe o id do cronograma que vai receber esse evento: ");
-            int idCrongrama  = leitura.nextInt();
+            int idCrongrama  = Integer.parseInt(leitura.nextLine());
             Cronograma cronogramaEncontrado = cronogramas.get(idCrongrama);
             // Cadastra
             System.out.println("Informe a atividade realizada no evento: ");
-            var recebeQuebraLinha = leitura.nextLine();
             String atividade = leitura.nextLine();
-            int menu = 0;
+            int menu;
             DiaDaSemana diaDaSemana = null;
-            while (menu == 0) {
+            do {
                 System.out.println("""
                         Digite um número para escolher o dia será realizado esse evento:
                         1 - SEGUNDA
@@ -60,7 +60,7 @@ public class CadastrarEvento {
                         System.out.println("Número inválido!");
                         menu = 0;
                 }
-            }
+            } while (menu == 0);
             Evento evento = new Evento(atividade, diaDaSemana);
             // Adiciona
             cronogramaEncontrado.getEventos().add(evento);

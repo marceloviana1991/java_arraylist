@@ -11,18 +11,20 @@ public class CadastrarAvaliacao {
         try{
             Scanner leitura = new Scanner(System.in);
             // Captura
+            cronogramas.forEach(System.out::println);
             System.out.println("Informe o id do cronograma: ");
             int idCrongrama  = leitura.nextInt();
             Cronograma cronogramaEncontrado = cronogramas.get(idCrongrama);
+            cronogramaEncontrado.getEventos().forEach(System.out::println);
             System.out.println("Informe o id do evento: ");
             int idEvento  = leitura.nextInt();
             // Cadastra
             Evento eventoEncontrado = cronogramaEncontrado.getEventos().get(idEvento);
             System.out.println("Informe a nota de avaliação: ");
             double nota = leitura.nextDouble();
-            int menu = 0;
+            int menu;
             TagDeAvaliacao tagDeAvaliacao = null;
-            while (menu == 0) {
+            do {
                 System.out.println("""
                         Informe um número para escolher uma tag de avaliação: 
                         1 - MUITO_BOM
@@ -52,7 +54,7 @@ public class CadastrarAvaliacao {
                         System.out.println("Número inválido!");
                         menu = 0;
                 }
-            }
+            } while (menu == 0);
             System.out.println("Informe um texto de avaliação: ");
             var recebeQuebraLinha = leitura.nextLine();
             String textoDeAvaliacao = leitura.nextLine();
